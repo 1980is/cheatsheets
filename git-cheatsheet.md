@@ -15,6 +15,7 @@
 	
 - Check the status of **your config**.
 	- ``git config --list``
+	- ``git remote -v``
 
 - Adding a new file to Git’s index does two things—it marks the file as being “tracked” and creates a copy of that file into the index.
 	- `git add filename, or git add . for all files and folders`
@@ -30,16 +31,35 @@
 - Remember to create branches from the branch you want to branch from. If you want to branch from master, remember to switch to master before creating the branch.
 - ``git switch -c branchname``
 	- Switches to "branchname" and creates it at the same time. For the switch command to work, GIT version must be **greater than 2.23.0**. If your GIT version is older, use, `git checkout -b "branchname"`.
+	
 - You can also use `git branch "branchname"`
 
 **Create branch on GitHub from the CLI**
 - Install the GitHub cli tool.
 	- `dnf install gh`
 	- `gh repo create`
+	
 - Then push the existing repository from the command line to the new repo we just created using "gh."
 	- `git remote add origin git@github.com:IceNetworkGitHub/name-of-repo-we-created.git`
 	- `git branch -M main`
 	- `git push -u origin main`
+
+**Remove remote origin**
+- ``git remote remove origin``
+	- The name should be the one in your config file. To view it ``cd .git`` and ``cat config``. Should look something like this, this command deletes the two lines under [remote "origin"].
+```
+	[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	[user]
+	name = Rambo Stallone
+	email = greatestemailever@gmail.uk
+	[remote "origin"]
+	url = git@github.com:githubaccount/reponame
+	fetch = +refs/heads/*:refs/remotes/origin/*
+```
 
 **Switch to another branch**
 - `git switch "branchname"`
