@@ -6,7 +6,7 @@
 - Legacy command to see route information.
 - ``netstat -rn`` or ``route -n``
 
-**Assign IP address.**
+**Assign IP address.**\
 Find the connection name.
 ``nmcli connection show``
 Assign the IP address t the correct connection name.
