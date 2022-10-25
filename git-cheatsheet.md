@@ -74,6 +74,13 @@
 
 ---
 
+## Pushing changes
+
+**Reverting a bad commit**
+- First find the SHA for the commit by running ``git log``.
+- Then execute, ``git revert SHA``.
+
+
 ## Help
 
 - git "command" --help. Longer version.
