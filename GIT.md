@@ -86,8 +86,10 @@
 - git "command" --help. Longer version.
 - git "command" -h. This is a much shorter version of the help page. 
 
+---
 
 ## Debug
+
 - **" ! [rejected]        main -> main (non-fast-forward)**
 error: failed to push some refs to 'github.com:accountname/terraform.git'
 hint: Updates were rejected because the tip of your current branch is behind
@@ -98,5 +100,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ### Fix 
 1. ``git pull --rebase origin master``
 2. ```git push origin master``
+
+### .gitignore file not working
+You most likely added the files you want to ignore. That's why the ignore file isn't working. Try ``git rm -r --cached .``
+
 
 ---
