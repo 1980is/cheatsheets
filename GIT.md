@@ -99,10 +99,21 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 "
 ### Fix 
 1. ``git pull --rebase origin master``
-2. ```git push origin master``
+2. ``git push origin master``
 
 ### .gitignore file not working
 You most likely added the files you want to ignore. That's why the ignore file isn't working. Try ``git rm -r --cached .``
+
+### There is no tracking information for the current branch
+When performing an operation like ``git pull``, ``git push``, ``git fetch``, etc, without specifying the remote or the branch involved in the operation. Git has no idea which branch to pull.
+
+``git push -u origin main``
+Make sure to change "main" to the your branch name. This operation makes sure that the local ``main`` branch tracks the remote ``main`` branch.
+
+Now ``git pull`` should work. Click [here](https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches) for more information.
+
+
+
 
 
 ---
