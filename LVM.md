@@ -1,14 +1,14 @@
 # LVM Management
 
-# Red Hat
+# Red Hat 
 
 ## Add a new disk to LVM without using partitions
 
-**Step 1**
+### Step 1
 Let's start by scanning the scsi hosts. This should discover the newly added disk without rebooting.
 ``for D in $(ls /sys/class/scsi_host/) ; do echo "- - -" > /sys/class/scsi_host/$D/scan ; done``
 
-**Step 2**
+### Step 2
 If you don't know the name of your physical volume group, use ``pvs`` or ``pvdisplay`` to find it.
 Next, add the disk to the correct physical volume group, ``pvcreate /dev/vdb``
 Make sure to **change vdb** for the disk you want to add. A quick way to **find the name of your new disk** is the command ``lsblk``. Let's check to see that it was successfully added. Again, you use the ``pvs`` to get a short summary, to get more information use ``pvdisplay``. The new disk should be listed.
