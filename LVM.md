@@ -136,6 +136,12 @@ Mount the filesystem. Change /tmp/var for whatever you are using.
 ``mount /dev/var/lv_var /tmp/var/``
 Mount it using /etc/fstab if you want the mount to survive a reboot.
 ``vim /etc/fstab``
+\
+\
+In /etc/fstab, this would mount the lv_var in the /tmp/var directory.
+\
+``/dev/opt/lv_var	/tmp/var				xfs	defaults	0 0``
+
 
 ---
 ## Ubuntu ##
