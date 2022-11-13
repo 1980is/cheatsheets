@@ -5,13 +5,12 @@
 ## Add a new disk to LVM without using partitions
 
 ### Step 1
-Let's start by scanning the scsi hosts. This should discover the newly added disk without rebooting. 
+Let's start by scanning the scsi bus. This should discover the newly added disk without rebooting. 
 \
 ``for D in $(ls /sys/class/scsi_host/) ; do echo "- - -" > /sys/class/scsi_host/$D/scan ; done``
 
 ### Step 2
-If you don't know the name of your physical volume group, use ``pvs`` or ``pvdisplay`` to find it.
-Next, add the disk to the correct physical volume group.
+Let's add the disk to the physical volume group.
 \
 \
 ``pvcreate /dev/vdb``
@@ -20,8 +19,10 @@ Next, add the disk to the correct physical volume group.
 Make sure to **change vdb** for the disk you want to add. A quick way to **find the name of your new disk** is the command ``lsblk``. Let's check to see that it was successfully added. Again, you use the ``pvs`` to get a short summary, to get more information use ``pvdisplay``. The new disk should be listed.
 
 ### Step 3 ###
-The next step is to add it to a current volume group, or create a new volume group if needed. If you don't know the name of your physical volume group, use ``vgs`` or ``vgdisplay`` to find it. To **expand a current volume group**.
+The next step is to add it to a current volume group, or create a new volume group if needed. If you don't know the name of your volume group, use ``vgs`` or ``vgdisplay`` to find it.
 \
+\
+To **expand a current volume group**.
 \
 ``vgextend rhel_redhat9 /dev/vdb`` 
 \
@@ -133,7 +134,6 @@ Mount it using /etc/fstab if you want the mount to survive a reboot.
 
 ---
 ## Ubuntu ##
-\
-\
+
 Coming later.
 
