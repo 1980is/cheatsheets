@@ -11,25 +11,28 @@ Let's start by scanning the scsi hosts. This should discover the newly added dis
 
 ### Step 2
 If you don't know the name of your physical volume group, use ``pvs`` or ``pvdisplay`` to find it.
-Next, add the disk to the correct physical volume group, ``pvcreate /dev/vdb``
+Next, add the disk to the correct physical volume group.
+\
+``pvcreate /dev/vdb``
+\
 Make sure to **change vdb** for the disk you want to add. A quick way to **find the name of your new disk** is the command ``lsblk``. Let's check to see that it was successfully added. Again, you use the ``pvs`` to get a short summary, to get more information use ``pvdisplay``. The new disk should be listed.
 
-**Step 3**
+### Step 3 ###
 The next step is to add it to a current volume group, or create a new volume group if needed. If you don't know the name of your physical volume group, use ``vgs`` or ``vgdisplay`` to find it. To **expand a current volume group**.
-
+\
 ``vgextend rhel_redhat9 /dev/vdb`` 
-
+\
 rhel_redhat9popos is the name of the volume group you want to expand. Remember **to change** both the name of the volume group and the disc to your specifications. Let's verify that the volume group was increased by the size of the disk that was added to the physical volume group. Use ``vgs`` or ``vgdisplay`` to get more information.
 
-**Step 4**
+### Step 4 ###
 The last step is to add that free space to a logical volume group. If you don't know the name of your logical volume group, use ``lvs`` or ``lvdisplay`` to find it. Let's add all the free space to our logical volume group.
-
+\
 ``lvextend -l +100%FREE /dev/rhel_redhat9/root``
-
+\
 Now we need to extend the filesystem on the mounted volume group. To see the filesystem type being used issue ``df -Th``. I am running xfs, to use all of the available space.
-
+\
 ``xfs_growfs /dev/mapper/rhel_redhat9-root``
-
+\
 If you are running ext4, you can grow the filesystem with ``resize2fs``.
 
 ## Expand a LVM partition
