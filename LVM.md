@@ -36,7 +36,7 @@ The last step is to add that free space to a logical volume group. If you don't 
 ``lvextend -l +100%FREE /dev/rhel_redhat9/root``
 \
 Remember that "rhel_redhat9" is your volume group, and "root" is your logical volume group.
-Now we need to extend the filesystem on the mounted volume group. To see the filesystem type being used issue ``df -Th``. I am running xfs, to use all of the available space.
+Nextwe need to extend the filesystem on the mounted volume group. To see the filesystem type being used issue ``df -Th``. I am running xfs, to use all of the available space.
 \
 \
 ``xfs_growfs /dev/mapper/rhel_redhat9-root``
@@ -72,7 +72,7 @@ Press "p" to print out the partition tables. Let's expand the last primary parti
 Here is the scary part, **we must delete the partition and recreate it** using the new size that we want. As you can see the vdc4 partition is 2G in size. Let's add 2GB to it and make it 4GB.
 \
 \
-In fdisk, press "d" and select the parition you want to delete.
+In fdisk, press "d" and select the partition you want to delete.
 \
 \
 Let's re-create the partition by pressing "n." Press "enter" and select the default first sector.
@@ -82,36 +82,41 @@ For me it's going to be a primary parition number 4 and I select the default fir
 \
 \
 The disk was originally 2GB and I want to add 2GB to the disk, I will write +4GB when it prompts me in the next step. If you want to use all of the space, just press "enter".
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (12584960-52428799, default 52428799): **+2GB**
+Last sector, +/-sectors or +/-size{K,M,G,T,P} (12584960-52428799, default 52428799): **+4GB**
 \
 \
-It asked me. "Do you want to remove the signature? [Y]es/[N]o:" I pressed N. Since we are resizing a partition we must certainly want to keep it.
+It asked me. "Do you want to remove the signature? [Y]es/[N]o:" I pressed N. **Since we are resizing a partition we must certainly want to keep it.**
 \
 \
-Press "w" to write the information to disk. Now vdc4 is 4GB instead of 2GB.
+Press "w" to write the information to disk. Now vdc4 has 4GB instead of 2GB.
 
 ### Step 4 ###
 
 Let's add it to LVM.  ``pvresize /dev/vdc4`` Let's verify the free space ``pvs``
-
+\
+\
 If you run ``vgs`` you can see that the "ops" volume group now has free space since the vdc4 partition was allocated to the "ops" volume group.
 
-**Step 5**
+### Step 5 ###
 
 Now we extend the logical volume group "lv_opt". 
-
+\
+\
 ``lvextend -l +100%FREE /dev/opt/lv_opt``
 
-**Step 6**
+### Step 6 ###
 
 Grow the filesystem.
-
+\
+\
 ``xfs_growfs /dev/mapper/opt-lv_opt``
 
 ## Create a volume group and a logical volume group ###
 
 ### Step 1 ###
 Add the disk or partition to the physical volume group. Change vdc1 for your disk/partition.
+\
+\
 ``pvcreate /dev/vdc1`` 
 
 ### Step 2 ###
