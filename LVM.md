@@ -88,8 +88,7 @@ It asked me. "Do you want to remove the signature? [Y]es/[N]o:" I pressed N. Sin
 \
 \
 Press "w" to write the information to disk. Now vdc4 is 4GB instead of 2GB.
-\
-\
+
 ### Step 4 ###
 
 Let's add it to LVM.  ``pvresize /dev/vdc4`` Let's verify the free space ``pvs``
