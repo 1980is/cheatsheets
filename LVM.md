@@ -53,7 +53,7 @@ We have the "vdc" disk that has four partitions.
 Partition 1, 3 and 4 are all using the "opt" volume group, and "lv_opt" logical volume group.
 \
 \
-![lsblk](lvm1.png)
+![lsblk](pictures/lvm1.png)
 
 ### Step 2 ###
 Let's add 15GB to the 10GB "vdc" disk, and then expand the "vdc4" partition using all that extra space.
