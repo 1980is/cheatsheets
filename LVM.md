@@ -5,7 +5,8 @@
 ## Add a new disk to LVM without using partitions
 
 ### Step 1
-Let's start by scanning the scsi hosts. This should discover the newly added disk without rebooting.
+Let's start by scanning the scsi hosts. This should discover the newly added disk without rebooting. 
+\
 ``for D in $(ls /sys/class/scsi_host/) ; do echo "- - -" > /sys/class/scsi_host/$D/scan ; done``
 
 ### Step 2
