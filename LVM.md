@@ -135,8 +135,6 @@ Now we need to add a filesystem to our logical volume.
 Mount the filesystem. Change /tmp/var for whatever you are using.
 ``mount /dev/var/lv_var /tmp/var/``
 Mount it using /etc/fstab if you want the mount to survive a reboot.
-``vim /etc/fstab``
-\
 \
 In /etc/fstab, this would mount the lv_var in the /tmp/var directory.
 \
