@@ -43,16 +43,19 @@ Now we need to extend the filesystem on the mounted volume group. To see the fil
 \
 If you are running ext4, you can grow the filesystem with ``resize2fs``.
 
+---
+
 ## Expand a LVM partition
 
-**Step 1**
+### Step 1 ###
 Let's use this setup as an example.
 We have the "vdc" disk that has four partitions.
 Partition 1, 3 and 4 are all using the "opt" volume group, and "lv_opt" logical volume group.
-
+\
+\
 ![lsblk](lvm1.png)
 
-**Step 2**
+### Step 2 ###
 Let's add 15GB to the 10GB "vdc" disk, and then expand the "vdc4" partition using all that extra space.
 
 **Let's use fdisk since the disklabel type is dos for the "vdc" disc. If the disklabel type is gpt, use gparted instead of fdisk.** You can see the disklabel type with ``fdisk -l``.
