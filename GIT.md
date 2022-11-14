@@ -77,7 +77,7 @@
 ## Pushing changes
 
 **Reverting a bad commit**
-- First find the SHA for the commit by running ``git log``.
+- First find the SHA for the commit by running ``git log``. You can also run ``git log --oneline`` to get a more readable output.
 - Then execute, ``git revert SHA``.
 
 

@@ -57,7 +57,7 @@ Partition 1, 3 and 4 are all using the "opt" volume group, and "lv_opt" logical 
 ![lsblk](pictures/lvm1.png)
 
 ### Step 2 ###
-Let's add 15GB to the 10GB "vdc" disk, and then expand the "vdc4" partition using all that extra space.
+Let's add 2GB to the 10GB "vdc" disk, and then expand the "vdc4" partition using all that extra space.
 
 **Let's use fdisk since the disklabel type is dos for the "vdc" disc. If the disklabel type is gpt, use gparted instead of fdisk.** You can see the disklabel type with ``fdisk -l``.
 
@@ -66,7 +66,7 @@ Let's add 15GB to the 10GB "vdc" disk, and then expand the "vdc4" partition usin
 ``fdisk /dev/vdc``
 \
 \
-Press "p" to print out the partition tables. Let's expand the last primary partition, "vdc4". Let's check the free unpartitioned space by pressing "F".
+Press "p" to print out the partition tables. Let's expand the last primary partition, "vdc4". Let's check the free unpartitioned space by pressing "F". If you are using an old version of fdisk, "F" will not be an option.
 \
 \
 Here is the scary part, **we must delete the partition and recreate it** using the new size that we want. As you can see the vdc4 partition is 2G in size. Let's add 2GB to it and make it 4GB.
@@ -82,7 +82,7 @@ For me it's going to be a primary parition number 4 and I select the default fir
 \
 \
 The disk was originally 2GB and I want to add 2GB to the disk, I will write +4GB when it prompts me in the next step. If you want to use all of the space, just press "enter".
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (12584960-52428799, default 52428799): **+4GB**
+Last sector, +/-sectors or +/-size{K,M,G,T,P} (12584960-52428799, default 52428799): **+4G**
 \
 \
 It asked me. "Do you want to remove the signature? [Y]es/[N]o:" I pressed N. **Since we are resizing a partition we must certainly want to keep it.**
