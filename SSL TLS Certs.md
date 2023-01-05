@@ -1,0 +1,1 @@
+nmap -p 443 --script ssl-cert vinnustund.isavia.is

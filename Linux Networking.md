@@ -39,6 +39,12 @@ Assign the IP address to the correct connection name.
 ### Changing the MTU for e.g., iSCSI
 - ``sudo nmcli con mod ensp92 802-3-ethernet.mtu 9000``
 
+
+## Debug
+
+- ``tcpdump -i any port 2222``
+
+
 ---
 
 ## Distro Specific Stuff

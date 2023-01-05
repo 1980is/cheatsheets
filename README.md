@@ -1,18 +1,4 @@
 # Cheatsheets for random things
-My memos for anything from GIT to Kubernetes
 
----
+If you are looking for something info and it's not here, check out my RHCSA 9 repo.
 
-# Linux networking
-[Linux networking cheatsheet](https://github.com/1980is/cheatsheets/blob/main/networking-cheatsheet.md)
-
----
-
-# Terraform
----
-
-# Python
----
-
-# RHCSA 9
----
