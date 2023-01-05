@@ -53,3 +53,5 @@ Your ssh client will attempt to use all the keys from `ssh-agent` one by one bef
 
 ``eval $(ssh-agent)``
 ``ssh-add <private-key>`` 
+
+Here you're starting the ssh-agent. This initializes the "SSH_AUTH_SOCK" environment variable which is used by the other SSH tools to find the Unix socket for the agent.
