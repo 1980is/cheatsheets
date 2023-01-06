@@ -1,1 +1,1 @@
-nmap -p 443 --script ssl-cert vinnustund.isavia.is
+nmap -p 443 --script ssl-cert 1980.is
