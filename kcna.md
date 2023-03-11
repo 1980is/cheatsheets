@@ -26,6 +26,7 @@ Run the application: ``kubectl create -f armann.yaml``
 ``kubectl get all`` \
 See namespaces:``kubectrl get ns`` \
 See labels for resources: ``kubectl get all --show-labels`` \
+``kubectl get endpoints``
 Use a specific label go the specific information about an app: ``kubectl get all --selector app=nginxopen`` \
 Show available resources: ``kubectl api-resources`` \
 ``kubectl describe svc nginxopen``
