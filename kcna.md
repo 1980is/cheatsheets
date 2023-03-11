@@ -43,3 +43,15 @@ This ensures that one application instance is started on each cluster node.
 
 ### Job
 Used for singe-shot applications.
+
+## Scalability
+
+### Manually Adjusting Scalability
+
+To manually scale the number of Pods in a Deployment or ReplicaSet use ``kubectl scale``\
+You can also use ``kubectl edit`` to change the number of Pods in a ReplicaSet or Deployment. \
+To scale the number of nodes in a cluster, add the new node using ``kubeadm join`` command. \
+
+### Autoscaling
+
+
