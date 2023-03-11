@@ -22,3 +22,12 @@ Show versions: ``kubectl api-versions`` \
 Get more information about resource properties: ``kubectl explain <resource>`` \
 Show fields in the resource spec: ``kubectl explain <resource>.spec`` \
 Show all field available: ``kubectl explain --recursive <resource>``
+
+## Application Resources
+
+### Deployment
+The standard resource for running scalable applications with the option to perform zero-downtime application updates.
+### Stateful
+An alternative to the Deployment Resources. Commonly used for stateful applications like databases.
+### DaemonSet
+This ensures that one application instance is started on each cluster node.
