@@ -8,7 +8,7 @@ Get help: ``kubectl explain pod``and ``kubectl explain pod.spec`` and ``kubectl 
 
 ## Stuff to install Minikube, Cubectl
 
-https://minikube.sigs.k8s.io/docs/start/
+https://minikube.sigs.k8s.io/docs/start/ \
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 ## Deployment
