@@ -25,7 +25,10 @@ Run the application: ``kubectl create -f armann.yaml``
 
 ``kubectl get all`` \
 See namespaces:``kubectrl get ns`` \
+See labels for resources: ``kubectl get all --show-labels`` \
+Use a specific label go the specific information about an app: ``kubectl get all --selector app=nginxopen`` \
 Show available resources: ``kubectl api-resources`` \
+``kubectl describe svc nginxopen``
 Show versions: ``kubectl api-versions`` \
 Get more information about resource properties: ``kubectl explain <resource>`` \
 Show fields in the resource spec: ``kubectl explain <resource>.spec`` \
@@ -73,7 +76,8 @@ To see metrics for pods and verify the metric server is working. ``kubectl top p
 \
 **Headless** is a service without an IP address. For internal use between frontend and backend applications.
 
----
+### Giving access to ports
+
 Ingress provides external http/https routes to services within the cluster. \
 You have to setup an ingress controller. \
 \
@@ -81,9 +85,16 @@ Let's use the Minikube Ingress addon. \
 ``minikube addons list`` Select the ingress. \
 ``kubectl get all -n ingress-nginx`` \
 \
-**NetworkPolicy** can filter incoming and outgoing traffic. Traffic between Namespaces is not filtered by default. NetworkPolicy can be used to apply inter-namespace traffic filtering. \
+**NetworkPolicy** can filter incoming and outgoing traffic. Traffic between Namespaces is not filtered by default. NetworkPolicy can be used to apply inter-namespace traffic filtering.
 
-### Opening a port on a Pod
+**Opening a port on a Pod.**
+
+Let's first setup a Pod to play around with. \
+``kubectl create deployment nginxopen --image=nginx`` \
+Let's expose a service/port for that app. \
+``kubectl expose deployment nginxopen --port=80`` \
+
+
 
 
 
