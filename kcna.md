@@ -1,15 +1,15 @@
-#Docker Stuff
+# Docker Stuff
 docker build . -f blabla -t ubuntu:nginx1
 
-#K8S Stuff
+# K8S Stuff
 
 source <(kubectl completion bash)
 
-##Deployment
+## Deployment
 kubectl create deploy myweb --image=nginx
 kubectl get deploy myweb -o yaml
 
-##Kubectl Commands
+## Kubectl Commands
 
 kubectl api-resources
 
