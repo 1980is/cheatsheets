@@ -31,3 +31,5 @@ The standard resource for running scalable applications with the option to perfo
 An alternative to the Deployment Resources. Commonly used for stateful applications like databases.
 ### DaemonSet
 This ensures that one application instance is started on each cluster node.
+### Job
+Used for singe-shot applications.
