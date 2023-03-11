@@ -23,6 +23,8 @@ Run the application: ``kubectl create -f armann.yaml``
 
 ## Kubectl Commands
 
+``kubectl get all`` \
+See namespaces:``kubectrl get ns`` \
 Show available resources: ``kubectl api-resources`` \
 Show versions: ``kubectl api-versions`` \
 Get more information about resource properties: ``kubectl explain <resource>`` \
@@ -53,5 +55,42 @@ You can also use ``kubectl edit`` to change the number of Pods in a ReplicaSet o
 To scale the number of nodes in a cluster, add the new node using ``kubeadm join`` command. \
 
 ### Autoscaling
+
+Install the metrics server: ``kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml``\
+\
+``kubectl edit deploy -n kube-system metrics-server`` \
+You need to add this line to the "containers" - args:
+``--kubelet-insecure-tls`` \
+To see metrics for pods and verify the metric server is working. ``kubectl top pods``
+
+## Networking
+
+### Networking Service Types
+
+**Cluster IPs** are only accessible on the cluster node. If you are using Minikube, you can ssh into Minikube and connect to the Cluster IP. ``minikube ssh`` \
+**NodePort** port forwads incoming traffic from node ports to a CluterIP IP address to provice external access. \
+**LoadBalancer** works in an environment that has an API to configure a loadbalancer instance.
+\
+Ingress provides external http/https routes to services within the cluster. \
+You have to setup an ingress controller. \
+\
+Let's use the Minikube Ingress addon. \
+``minikube addons list`` Select the ingress. \
+``kubectl get all -n ingress-nginx`` \
+\
+**NetworkPolicy** can filter incoming and outgoing traffic. Traffic between Namespaces is not filtered by default. NetworkPolicy can be used to apply inter-namespace traffic filtering. \
+\
+
+### Opening a port on a Pod
+
+
+
+
+
+
+
+
+
+
 
 
