@@ -71,6 +71,9 @@ To see metrics for pods and verify the metric server is working. ``kubectl top p
 **NodePort** port forwads incoming traffic from node ports to a CluterIP IP address to provice external access. \
 **LoadBalancer** works in an environment that has an API to configure a loadbalancer instance.
 \
+**Headless** is a service without an IP address. For internal use between frontend and backend applications.
+
+---
 Ingress provides external http/https routes to services within the cluster. \
 You have to setup an ingress controller. \
 \
@@ -79,9 +82,10 @@ Let's use the Minikube Ingress addon. \
 ``kubectl get all -n ingress-nginx`` \
 \
 **NetworkPolicy** can filter incoming and outgoing traffic. Traffic between Namespaces is not filtered by default. NetworkPolicy can be used to apply inter-namespace traffic filtering. \
-\
 
 ### Opening a port on a Pod
+
+
 
 
 
